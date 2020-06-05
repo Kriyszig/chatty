@@ -1,7 +1,8 @@
 # Chatty
 
 Chatty is a video chat application that uses [WebRTC](https://webrtc.org/) to stream audio and video between two users.  
-This application is live on glitch at https://chatty-chatty-now-now.glitch.me if you want to take it for a spin.
+This application is live on glitch at https://chatty-chatty-now-now.glitch.me if you want to take it for a spin.  
+**Note:** This application might not work on Chrome or other Chrome drived desktop browsers because of insecure WebSocket connection. Due to enhancd security, Chrome doesn't allow insecure WebScokets but that isn't the case with Firefox where insecure connections via a WebSocket is currently allowed.
 
 ### Purpose
 
