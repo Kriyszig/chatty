@@ -1,6 +1,11 @@
 # Chatty
 
-Chatty is a video chat application that uses [WebRTC](https://webrtc.org/) to stream audio and video between two users.
+Chatty is a video chat application that uses [WebRTC](https://webrtc.org/) to stream audio and video between two users.  
+This application is live on glitch at chatty-chatty-now-now.glitch.me if you want to take it for a spin.
+
+### Purpose
+
+This was an application built to have an hands-on experience with WebRTC and how media streaming works with WebRTC on a high level overview. This is a good started code for a basic two client web chat application that can be built upon.
 
 ### Dependencies
 

@@ -14,7 +14,11 @@ function disconnect() {
   if(clients > 0) {
     --clients;
   }
-  this.broadcast.emit('StopStream');
+  // Don't interrupt the stream if a third user
+  // leaves after seeing the error message
+  if(clients < 2) {
+    this.broadcast.emit('StopStream');
+  }
 }
 
 function sendOffer(offer) {
@@ -31,10 +35,10 @@ io.on('connection', function(socket) {
       if(clients == 1) {
         this.emit('CreatePeer');
       }
-      ++clients;
     } else {
       this.emit('SessionActive');
     }
+    ++clients;
   });
 
   socket.on('Offer', sendOffer);

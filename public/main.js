@@ -70,4 +70,6 @@ navigator.mediaDevices.getUserMedia({video: true, audio: true})
     socket.on('StopStream', stopCallerVideo);
     socket.on('CreatePeer', makePeer);
   })
-  .catch(err => document.write(err));
+  .catch(err => {
+    document.write("This application requires webcam and audio permission to function!")
+  });
