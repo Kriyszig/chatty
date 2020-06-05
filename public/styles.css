@@ -1,0 +1,30 @@
+html, body {
+  margin: 0;
+}
+
+.container {
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+video {
+  width: 50vw;
+  height: 100vh;
+  /* Fix lateral inversion */
+  transform: rotateY(180deg);
+  -webkit-transform:rotateY(180deg);
+  -moz-transform:rotateY(180deg);
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  video {
+    width: 100vw;
+    height: 50vh;
+  }
+}

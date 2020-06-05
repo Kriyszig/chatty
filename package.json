@@ -1,0 +1,15 @@
+{
+  "name": "chatty",
+  "version": "0.0.1",
+  "description": "A video chat application based on WebRTC",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Kriyszig",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}
