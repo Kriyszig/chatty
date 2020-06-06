@@ -29,6 +29,10 @@ function sendAnswer(data) {
   this.broadcast.emit('BackAnswer', data);
 }
 
+function sendText(text) {
+  this.broadcast.emit('TextMessage', text);
+}
+
 io.on('connection', function(socket) {
   socket.on('NewClient', function() {
     if(clients < 2) {
@@ -43,6 +47,7 @@ io.on('connection', function(socket) {
 
   socket.on('Offer', sendOffer);
   socket.on('Answer', sendAnswer);
+  socket.on('Text', sendText);
   socket.on('disconnect', disconnect);
 });
 

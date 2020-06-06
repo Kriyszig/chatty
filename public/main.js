@@ -69,6 +69,64 @@ navigator.mediaDevices.getUserMedia({video: true, audio: true})
     socket.on('SessionActive', sessionActive);
     socket.on('StopStream', stopCallerVideo);
     socket.on('CreatePeer', makePeer);
+    socket.on('TextMessage', (text) => createTextNode('Guest', text));
+
+    document.querySelector('.back').addEventListener('click', () => {
+      const chatPanel = document.querySelector('.chat');
+      chatPanel.classList.remove('move-to-left');
+    });
+
+    document.querySelector('.toggle-chat').addEventListener('click', () => {
+      const chatPanel = document.querySelector('.chat');
+      chatPanel.classList.add('move-to-left');
+    });
+
+    document.querySelector('.chat-input').addEventListener('keydown', (ev) => {
+      if(ev.keyCode === 13) {
+        submitInput();  
+      }
+    })
+
+    document.querySelector('.send').addEventListener('click', () => {
+      submitInput();
+    });
+
+    function submitInput() {
+      const chatInput = document.querySelector('.chat-input');
+      const text = chatInput.value.trim();
+      chatInput.value = '';
+      if(text.length) {
+        socket.emit('Text', text);
+        createTextNode('You', text);
+      }
+    }
+
+    function createTextNode(as, text) {
+      const newTextNode = document.createElement('div');
+      newTextNode.classList.add('chat-element');
+      newTextNode.style.display = 'flex';
+      newTextNode.style.flexDirection = 'column';
+      newTextNode.style.paddingBlockEnd = '4px';
+
+      const addressElement = document.createElement('span');
+      addressElement.textContent = as;
+      addressElement.style.fontWeight = 'bolder';
+      addressElement.style.color =
+      (as === 'You')? 'cyan': '#D50032';
+
+      const textElement = document.createElement('span');
+      textElement.textContent = text;
+      textElement.style.color = 'white';
+      textElement.style.maxWidth = '270px';
+      textElement.style.fontWeight = 'bolder';
+      textElement.style.wordWrap = 'break-word';
+
+      newTextNode.appendChild(addressElement);
+      newTextNode.appendChild(textElement);
+
+      document.querySelector('.chat-list').appendChild(newTextNode);
+      newTextNode.scrollIntoView();
+    }
   })
   .catch(err => {
     document.write("This application requires webcam and audio permission to function!")
