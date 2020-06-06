@@ -1,8 +1,8 @@
 # Chatty
 
-Chatty is a video chat application that uses [WebRTC](https://webrtc.org/) to stream audio and video between two users.  
+Chatty is a video and text chat application that uses [WebRTC](https://webrtc.org/) and [WebSocket](https://html.spec.whatwg.org/multipage/web-sockets.html) to stream audio, video and text between two users.  
 This application is live on glitch at https://chatty-chatty-now-now.glitch.me if you want to take it for a spin.  
-**Note:** This application might not work on Chrome or other Chrome drived desktop browsers because of insecure WebSocket connection. Due to enhancd security, Chrome doesn't allow insecure WebScokets but that isn't the case with Firefox where insecure connections via a WebSocket is currently allowed.
+**Note:** This application might not work on Chrome or other Chrome derived desktop browsers because of insecure WebSocket connection. Due to enhancd security, Chrome doesn't allow insecure WebScokets but that isn't the case with Firefox where insecure connections via a WebSocket is currently allowed.
 
 ### Purpose
 
@@ -30,9 +30,10 @@ You can then visit `http://localhost:3000/` or the port set by the `PORT` enviro
 
 ### The User Interface
 
-![Imgur](https://i.imgur.com/GZ0To9N.png)
+![Chatty](https://i.imgur.com/nnNI939.png)
 
 This is minimal application focusing on WebRTC and Media Streaming and hence the UI looks the part.
 
-When only a single user is present, only the left side view is on with your video preview and when another user joins, they'll pop up on the right side. When the guest disconnects, the right view goes dark and only left view remains.
+When only a single user is present, only the top view is on with your video preview and when another user joins, they'll pop up in the bottom view. When the guest disconnects, the bottom view goes dark and only your video remains.  
+The chat pane on the right can be used to send text messages between the clients. The window is hidden on smaller viewports and can be toggled using a button
 
