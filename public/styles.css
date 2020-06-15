@@ -3,7 +3,9 @@ html, body {
 }
 
 body {
-  overflow-x: hidden;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
 nav {
@@ -123,6 +125,7 @@ video {
   height: calc(100vh - 50px);
   background-color: black;
   border-left: 2px solid cyan;
+  transition: all 0.3s linear;
 }
 
 .chat-list {
